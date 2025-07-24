@@ -1,4 +1,17 @@
-# Video-Auto-Wipe
+<h1 align="center">Video Inpainting</h1>
+
+**与原项目相比的变更处**：
+
+1. 对 demo.py 进行了部分重构；
+2. 新增了一些性能优化项；
+3. README 更新：环境依赖等。
+
+**性能对比**:
+
+| Test Data | Original | Optimized | Video Duration |
+| :---: |:--------:|:---------:|:--------------:|
+| chinese1.mp4 |   200s   |   125s    |      23s       |
+
 If you are interested in AIGC application tools, you can learn a bit about it on [this blog](https://www.seeprettyface.com/).<br />
 --------------------------------------------------------------------------------------------------<br /><br />
 
@@ -25,8 +38,10 @@ Erase the fixed-pattern content you don't want to see in your video. This projec
 
 # 使用方法
 ### 1.环境配置
-&emsp;&emsp;torch>1.0<br/>
-&emsp;&emsp;其他的缺什么依赖就pip install xxx，需要的东西不多<br/><br/>
+Install pytorch, and the following packages:
+```commandline
+pip install -r requirements.txt
+```
 
 ### 2.运行方法
 &emsp;&emsp;下载预训练文件放在pretrained-weight文件夹里。<br/>
@@ -51,8 +66,3 @@ Erase the fixed-pattern content you don't want to see in your video. This projec
 &emsp;&emsp;第1步. 针对特定任务的时域感知训练，即让模型能感知到需被擦除的前景数据；<br/>
 &emsp;&emsp;第2步. 融合进擦除模型，进行端到端的微调训练。<br/>
 <br/><br/><br/>
-
-# 后续计划
-![Image text](https://github.com/a312863063/Video-Auto-Wipe/blob/main/pics/undo.png)<br/>
-&emsp;&emsp;后续我想实现广告、人物和敏感内容擦除等方向。填补技术效果已经不错了，难点在于感知。图标感知可以利用区域一致性实现，字幕感知可以利用模式一致性实现。人物感知要如何实现？广告感知要如何实现？这种设计不能有缺漏，估计得<b>结合数据本身的规律</b>去做才行。。
-<br/><br/>
